@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Team Divider Wheel&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f0f0f0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input-section {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#wheel-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#wheel {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: conic-gradient(</p>
+<p class="p1"><span class="Apple-converted-space">                </span>#ff0000 0deg 120deg,<span class="Apple-converted-space">    </span>/* Red */</p>
+<p class="p1"><span class="Apple-converted-space">                </span>#0000ff 120deg 240deg,<span class="Apple-converted-space">  </span>/* Blue */</p>
+<p class="p1"><span class="Apple-converted-space">                </span>#00ff00 240deg 360deg <span class="Apple-converted-space">  </span>/* Green */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#pointer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: -20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: black; /* Indicator color changed to black */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clip-path: polygon(50% 0%, 0% 100%, 100% 100%);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.teams {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.team {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-width: 150px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.team h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 0 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.team-list {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 120px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #4CAF50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>button:disabled {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #cccccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: not-allowed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 200px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Team Divider Wheel&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="input-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="name" placeholder="Enter your name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="spinWheel()" id="spinButton"&gt;Spin the Wheel!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="wheel-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="pointer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="wheel"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="teams"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="team" style="background-color: #ffcccc;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Boowligans (&lt;span id="red-count"&gt;5&lt;/span&gt;)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="team-list" id="red-team"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="team" style="background-color: #ccccff;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Under-Dawgs (&lt;span id="blue-count"&gt;5&lt;/span&gt;)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="team-list" id="blue-team"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="team" style="background-color: #ccffcc;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Fury of the Balls (&lt;span id="green-count"&gt;5&lt;/span&gt;)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="team-list" id="green-team"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Audio for sound effects --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio id="spinSound" src="https://assets.mixkit.co/sfx/preview/mixkit-spinning-wheel-1-104.mp3"&gt;&lt;/audio&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"&gt;&lt;/audio&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const teams = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'red', name: 'Boowligans', count: 5, members: [], color: '#ff0000', startAngle: 0, endAngle: 120 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'blue', name: 'Under-Dawgs', count: 5, members: [], color: '#0000ff', startAngle: 120, endAngle: 240 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 'green', name: 'Fury of the Balls', count: 5, members: [], color: '#00ff00', startAngle: 240, endAngle: 360 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let isSpinning = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function spinWheel() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isSpinning) return;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const nameInput = document.getElementById('name');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const name = nameInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!name) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('Please enter your name!');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const availableTeams = teams.filter(t =&gt; t.count &gt; 0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (availableTeams.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('All teams are full!');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>isSpinning = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('spinButton').disabled = true;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Play spinning sound</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const spinSound = document.getElementById('spinSound');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>spinSound.currentTime = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>spinSound.play();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Select random team</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const selectedTeamIndex = Math.floor(Math.random() * availableTeams.length);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const selectedTeam = availableTeams[selectedTeamIndex];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Calculate rotation (5 full rounds + random angle within the team's sector)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const fullRotations = 1800; // 5 full rotations (360 * 5)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const randomAngle = Math.random() * (selectedTeam.endAngle - selectedTeam.startAngle) + selectedTeam.startAngle;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const finalRotation = fullRotations + randomAngle;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Spin the wheel</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const wheel = document.getElementById('wheel');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>wheel.style.transform = `rotate(${finalRotation}deg)`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Play winning sound</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const winSound = document.getElementById('winSound');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>winSound.currentTime = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>winSound.play();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Update team data</p>
+<p class="p1"><span class="Apple-converted-space">                </span>selectedTeam.count--;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>selectedTeam.members.push(name);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Update UI</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateTeamDisplay(selectedTeam);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nameInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>isSpinning = false;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('spinButton').disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 3000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updateTeamDisplay(team) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Update count display</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`${team.id}-count`).textContent = team.count;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Update member list</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const list = document.getElementById(`${team.id}-team`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const listItem = document.createElement('li');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>listItem.textContent = team.members[team.members.length - 1];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>list.appendChild(listItem);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
